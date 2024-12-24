@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<style type="text/css">
+    table {
+        width: 70%;
+        border-collapse: collapse;
+        text-align: center;
+        margin: 0px auto
+    }
+
+    table caption {
+        font-size: 2em;
+        font-weight: bold;
+        margin: 1em 0;
+    }
+
+    th, td {
+        border: 1px solid #999;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    table thead tr {
+        background-color: #dc8cdb;
+        color: #fff;
+    }
+
+    table tbody tr:nth-child(odd) {
+        background-color: #eee;
+    }
+
+
+    table tbody tr td:first-child {
+        color: #f40;
+    }
+
+    table tfoot tr td {
+        text-align: right;
+        padding-right: 20px;
+    }
+
+</style>
+<title>搜索</title>
+<head>
+    <link rel="stylesheet" href="../static/assets/css/about.css">
+
+</head>
+<body>
+<div class="about">
+    <div class="stars"></div>
+
+    <!--搜索框-->
+    <h3 class="about_tit">查找您需要的人才
+        <div class="search">
+            <form action="/search1" method="post">
+                <input placeholder="输入您所需要的人才领域..." name="keyword1" type="text">
+                <button type="submit"></button>
+            </form>
+        </div>
+
+    </h3>
+    <img class="about_bgc" src="../static/2.png" alt="">
+    <div class='ribbon'>
+        <!-- <a href='./index.html'><span>首页</span></a>  -->
+        <a href='company/select_employee.html'><span>返回</span></a>
+    </div>
+    <section class="get-info">
+        <div class="container">
+            <div class="row">
+                <div class="Content-Main">
+                    <table size="6">
+                        <thead>
+                        <tr>
+                            <td>姓名</td>
+                            <td>性别</td>
+                            <td>年龄</td>
+                            <td>所在地</td>
+                            <td>出生日期</td>
+                            <td>目标职位</td>
+                            <td>期望薪资</td>
+                            <td>个人简介</td>
+                            <td>邮箱</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for employee1 in employee %}
+                            <tr>
+                                <td>{{ employee1[0] }}</td>
+                                <td>{{ employee1[1] }}</td>
+                                <td>{{ employee1[2] }}</td>
+                                <td>{{ employee1[3] }}</td>
+                                <td>{{ employee1[4] }}</td>
+                                <td>{{ employee1[6] }}</td>
+                                <td>{{ employee1[7] }}</td>
+                                <td>{{ employee1[8] }}</td>
+                                <td>{{ employee1[9] }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>

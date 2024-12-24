@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑个人信息</title>
+    <style type="text/css">
+        .Content-Main{
+            width: 500px;
+			left: 30%;
+            margin: auto;
+            border: none;
+            border-radius: 5px; 
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-shadow: 1px 1px 1px #444;
+            color: white;
+            background: #555;
+			padding:30px;
+			position:absolute;
+			
+        }
+        .Content-Main h1{
+            padding: 8px 0px 40px 10px;
+            display: block;
+            border-bottom: 1px solid #444;
+        }
+        .text1{
+            margin-left: 15px;
+			line-height: 20px;
+        }
+        .Content-Main label{
+            margin: 0px 0px 5px;
+            display: block;
+        }
+        .fileInputContainer{
+            height: 99px;
+            width: 99px;
+            margin: 20px 20px 20px 20px ;
+            border: none;
+            background: url("img/Example.jpg");
+            overflow: hidden; 
+            position: relative; 
+        }
+        .fileInput{
+            height: 106px;
+            border: none;
+            font-size: 300px;
+            opacity: 0;  
+            filter:alpha(opacity=0);
+            cursor: pointer;
+            position: absolute;
+        }
+        .Content-Main label>span{
+            width: 20%;
+            float: left;
+            text-align: right;
+            padding-right: 10px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .Main-sex{
+            padding-right: 13px;
+            padding-bottom: 13px;
+            font-weight: bold;
+            line-height: 4px; 
+        }
+        .Main-sex input[type=checkbox]{
+            margin-top:6px;
+            vertical-align:middle; 
+        }
+        .Content-Main input[type="text"],.Content-Main input[type="email"],.Content-Main textarea{
+            height: 25px;
+            width: 70%;
+            line-height: 15px;
+            padding: 5px 0px 5px 5px;
+            margin-bottom: 16px;
+            margin-right: 6px;
+            margin-top: 2px;
+            border: none;
+            border-radius:2px;
+            -webkit-border-radius:2px;
+            -moz-border-radius:2px;
+            outline: 0 none;
+            background:  #DFDFDF;
+            color: #525252;
+        }
+        .Content-Main textarea{
+            height: 100px;
+            width: 70%;
+            padding: 5px 0px 0px 5px;
+        }
+        .Content-Main .button{
+            padding: 8px 24px 8px 24px;
+            margin-bottom: 8px;
+            border: none;
+            border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            font-weight: bold;
+            text-shadow: 1px 1px 1px #FFE477;
+            box-shadow: 1px 1px 1px  #3D3D3D;
+            -moz-box-shadow: 1px 1px 1px  #3D3D3D;
+            -webkit-box-shadow: 1px 1px 1px  #3D3D3D;
+            color: #585858;
+            background: #f6ff0a;
+        }
+        #button:hover{
+            border: none;
+        }
+        #button{
+            width: 150px;
+            height: 30px;
+            background: #eee;
+            color: black;
+            border: inset;
+        }
+		.dg {
+            background-color: #B0C4DE;
+            width: 100%;
+            height: 900px;
+			top:0;
+            opacity: 0.3;
+            -webkit-opacity: 0.3;
+            -moz-opacity: 0.3;
+			position:absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="dg" class="dg">
+<img src="../static/assets/images/testimonials-right-dec.png" style="height=100%;width=100%"></img>
+</div>
+        <div class="Content-Main">
+            <form  action="/change_message" method="post" class="form-userInfo">
+                <h1 align="center">个人信息</h1>
+                <span class="text1">请在文本框中完善您的个人信息：</span>
+                
+                <label>
+                    <span>姓名:</span>
+                    <input type="text"  name="name" placeholder="Your Full Name">
+                </label>
+                <label class="Main-sex">
+                    <span>性别:</span>
+                    <input type="text" name="gender" placeholder="man or woman">
+                </label>
+                <label>
+                    <span>邮箱 :</span>
+                    <input type="text" name="email" placeholder="@.com">
+                </label>
+				<label>
+                    <span>年龄 :</span>
+                    <input type="text" name="age" placeholder="Your Age">
+                </label>
+                <label>
+                    <span>电话:</span>
+                    <input type="text" name="phone" placeholder="Please input 11 number">
+                </label>
+				<label>
+                    <span>所在地:</span>
+                    <input type="text"  name="address" placeholder="Your Adress">
+                </label>
+               
+				<label>
+                    <span>身份证号:</span>
+                    <input type="text"  name="cardnum" placeholder="Your ID">
+                </label>
+                <label>
+                    <span>目标职位:</span>
+                    <input type="text"  name="zhiwei" placeholder="Taeget Position">
+                </label>
+				<label>
+                    <span>期望薪资:</span>
+                    <input type="text"  name="money" placeholder="Salary expectation">
+                </label>
+                <label>
+                    <span>个人简历:</span>
+                    <textarea id="message" name="message" placeholder="CV"></textarea>
+                </label>
+                <label align="center">
+                    <input type="submit" id="button" value="提交">
+                </label>
+				
+            </form>
+        </div>
+</body>
+</html>

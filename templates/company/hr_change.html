@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改密码</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+        }
+        .container {
+            height: 100%;
+            background-image: linear-gradient(to right, #fbc2eb, #a6c1ee);
+        }
+
+        table{
+            position: center;
+        }
+
+        .login-wrapper {
+            background-color: #fff;
+            width: 358px;
+            height: 688px;
+            border-radius: 15px;
+            padding: 0 50px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .header {
+            font-size: 38px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 200px;
+        }
+        .input-item {
+            display: block;
+            width: 100%;
+            margin-bottom: 20px;
+            border: 0;
+            padding: 10px;
+            border-bottom: 1px solid rgb(128, 125, 125);
+            font-size: 15px;
+            outline: none;
+        }
+        .input-item::placeholder {
+            text-transform: uppercase;
+        }
+        .btn {
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: 40px;
+            background-image: linear-gradient(to right, #a6c1ee, #fbc2eb);
+            color: #000;
+        }
+        .msg {
+            text-align: center;
+            line-height: 88px;
+        }
+        a {
+            text-decoration-line: none;
+            color: #000;
+        }
+
+        #button{
+            width: 260px;
+            height: 30px;
+            background: rgb(75, 133, 226);
+            color: white;
+            border: none;
+        }
+    </style>
+    <script>
+     //密码校验
+        function isPwd(){
+            let text = document.getElementById("pwd1").value;
+            let re = /^(?=.*[a-z])(?=.*\d)[^]{8,16}$/;
+            let result = re.test(text);
+            if(!result) {
+                document.getElementById("pwd1Span").innerHTML = "密码必须包含数字,字母,且不少于8位";
+                return false;
+            }else {
+                document.getElementById("pwd1Span").innerHTML = "";
+                return true;
+            }
+        }
+     //确认密码
+        function isCom() {
+            let text1 = document.getElementById("pwd1").value;
+            let text2 = document.getElementById("pwd2").value;
+            if (text2 === text1) {
+                document.getElementById("pwd2Span").innerHTML = "";
+                return true;
+            } else {
+                document.getElementById("pwd2Span").innerHTML = "两次输入的密码不一致";
+                return false;
+            }
+        }
+
+         function isGender() {
+             let text3 = document.getElementById("gender").value;
+             if (text3 === "男" || text3 === "女") {
+                 document.getElementById("genderSpan").innerHTML = "";
+                 return true;
+             } else {
+                 document.getElementById("genderSpan").innerHTML = "请输入男/女";
+                 return false;
+             }
+         }
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-wrapper">
+            <div class="header">修改密码</div>
+            <div class="form-wrapper">
+    <form action="/hr_change_password1" method="post">
+        <table align="center" width="360px" height="400px" style="margin: 0 auto">
+            <tr>
+                <td width="140" align="center">用户名:</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td align="center">密码:</td>
+                <td><input type="password" name="oldpassword"></td>
+            </tr>
+            <tr>
+                <td align="center">新密码:</td>
+                <td><input type="password" id="pwd1" name="newpassword" onblur="isPwd()"></td>
+            </tr>
+            <tr>
+            <td colspan="2" align="center"><span id="pwd1Span" style="color: red;font-family: 楷体,serif"></span></td>
+            </tr>
+            <tr>
+                <td align="center">确认密码:</td>
+                <td><input type="password" id="pwd2" name="password2" placeholder="请再次输入密码" onblur="isCom()"> </td>
+            </tr>
+			<tr>
+            <td colspan="2" align="center"><span id="pwd2Span" style="color: red;font-family: 楷体,serif"></span></td>
+            </tr>
+			<tr>
+                <td align="center" colspan="2"><input id="button" type="submit" value="提交"></td>
+            </tr>
+        </table>
+    </form>
+            </div>
+            
+
+		</div>
+    </div>
+</body>
+</html>
